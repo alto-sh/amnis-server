@@ -1,11 +1,11 @@
 import express from "express";
 
 /* Import Routes */
-import hello_world_routes from "./hello_world";
+import stream_routes from "./stream_routes";
 
 const defaultExports = (app: express.Application) => {
     /* Route Function Calls */
-    hello_world_routes(app);
+    stream_routes(app);
 };
 
 export default defaultExports;

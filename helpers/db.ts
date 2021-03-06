@@ -10,13 +10,14 @@ const pool = mysql.createPool({
 });
 
 // Entities
-// Thought (Id, Body, UserId, StreamId, Timestamp, FromMobile)
-// Stream (Id, Name)
+// Thought (Id, Body, StreamId, Timestamp, FromMobile)
+// Stream (Id, Name, UserId)
 
 const create_stream_table = `
 CREATE TABLE IF NOT EXISTS STREAM {
     ID INT(11) NOT NULL AUTO_INCREMENT,
     NAME VARCHAR(256) NOT NULL,
+    USER_ID VARCHAR(256) NOT NULL,
     PRIMARY KEY (ID)
 }
 `;
@@ -25,10 +26,11 @@ const create_thought_table = `
 CREATE TABLE IF NOT EXISTS NOTE {
     ID INT(11) NOT NULL AUTO_INCREMENT,
     NAME LONGTEXT NOT NULL,
-    USER_ID VARCHAR(256) NOT NULL,
     STREAM_ID INT NOT NULL,
     TIMESTAMP DATE NOT NULL,
-    FROM_MOBILE BOOL NOT NULL
+    FROM_MOBILE BOOL NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (STREAM_ID) REFERENCES STREAM(ID)
 }
 `;
 
