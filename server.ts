@@ -1,7 +1,11 @@
 import express from "express";
 import cors from "cors";
+import bodyParser from "body-parser";
 
 const app: express.Application = express()   // Initialize Express
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())         // Attach cors
 
 // Initial cors config.
