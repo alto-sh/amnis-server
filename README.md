@@ -1,2 +1,2 @@
-# easyns
-Boilerplate code for a node backend.
+# Amnis
+A thought organizer app (DeltaHacks 7 Project!)
