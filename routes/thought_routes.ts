@@ -17,7 +17,7 @@ const routes = (app: express.Application) => {
                 console.log(results);
                 res.json({ results: true });
             }
-        })
+        });
     });
 
     app.put("/thought/update/:thoughtid", (req, res) => {
@@ -59,7 +59,7 @@ const routes = (app: express.Application) => {
                 return res.json({ success: false });
             } else return res.json({ success: true });
         });
-    })
+    });
 
 }
 
